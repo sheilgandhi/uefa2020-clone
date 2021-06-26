@@ -1,13 +1,17 @@
-import * as React from 'react';
+import React, { useRef } from "react";
 import { StyleSheet, SafeAreaView, Platform, Text, View, Pressable } from 'react-native';
 import Field from '../components/Field'
 import TeamStats from '../components/TeamStats';
+import BottomSheet from '@gorhom/bottom-sheet';
 
 export default function TabOneScreen() {
+  const playersBottomSheet = useRef<BottomSheet>();
 
   const viewPlayers = () => {
-    console.log("View Player")
+    playersBottomSheet.current?.expand();
   }
+
+  const snapPoints = [0, "50%"];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -17,6 +21,16 @@ export default function TabOneScreen() {
       <Pressable onPress={viewPlayers} style={styles.buttonContainer}>
         <Text>View Players</Text>
       </Pressable>
+
+      <BottomSheet
+        ref={playersBottomSheet}
+        index={0}
+        snapPoints={snapPoints}
+      >
+        <View style={styles.contentContainer}>
+          <Text>Awesome 🎉</Text>
+        </View>
+      </BottomSheet>
     </SafeAreaView>
   );
 }
@@ -36,5 +50,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 50,
     marginTop: "auto",
-  }
+  },
+  contentContainer: {}
 });
