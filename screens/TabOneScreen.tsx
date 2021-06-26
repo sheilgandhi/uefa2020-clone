@@ -52,7 +52,7 @@ export default function TabOneScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === 'android' ? 25 : 0, // https://stackoverflow.com/questions/51289587/react-native-how-to-use-safeareaview-for-android-notch-devices/55017347 SafeAreaView for android
+    paddingTop: Platform.OS === 'android' ? 35 : 0, // https://stackoverflow.com/questions/51289587/react-native-how-to-use-safeareaview-for-android-notch-devices/55017347 SafeAreaView for android
     flex: 1,
     alignItems: 'center',
     backgroundColor: "#4ccf4d",
@@ -66,5 +66,4 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginTop: "auto",
   },
-  contentContainer: {}
 });
