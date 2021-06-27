@@ -9,7 +9,7 @@ export const allPlayersState = atom({
 
 export const positionFilterState = atom({
     key: "positionFilter",
-    default: [],
+    default: [] as string[], 
 });
 
 export const filteredPlayers = selector({
